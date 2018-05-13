@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>DIV+CSS</title>
+		<style type="text/css">
+			body{
+				width: 100%;
+				height: 100%;
+				background-image: url(img/13e9ea4a90de537dc88d0b4b0c1e2202dcfb0e3929e5ad865fdc4af1a4f09d5c.jpg);
+				background-size: cover;
+				background-repeat:no-repeat; 
+				background-attachment: fixed;
+			}
+			.Login{
+				margin: auto;
+				left: 0;
+				right: 0;
+				bottom: 0;
+				top: 0;
+				height: 300px;
+				width: 250px;
+				position: absolute;
+			}
+			.Login input{
+				width: 100%;
+				background: rgba(0,0,0,0.3);
+				padding: 10px;
+				font-size: 13px;
+				color: #FFFFFF;
+				text-shadow: 1px 1px 1px rgba(0,0,0,0.3);
+				border: 1px solid rgba(0,0,0,0.3);
+				border-radius: 4px;
+				margin-bottom: 10px;
+				transition: background-color .5s ease;
+			}
+			.Login .txt:hover{
+				background: rgba(0,0,0,0.6);
+			}
+			.Login .btn{
+				display: block;
+				width: 270px;
+				padding: 9px 14px;
+				font-size: 15px;
+				background-image: linear-gradient(cornflowerblue,dodgerblue);
+				cursor: pointer;
+			}
+			.Login .btn:hover{
+				background-image: linear-gradient(deepskyblue,steelblue);
+				text-decoration: none;
+			}
+			.Login h1{
+				color: white;
+				text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+			    font-size: 2em;
+			    text-align: center;
+			}
+			footer{
+				width: 99%;
+				height: 100px;
+				position: absolute;
+				bottom: 0;
+			}
+			footer .CopyRight{
+				color: whitesmoke;
+				width: 100px;
+				margin: 0 auto;
+			}
+		</style>
+		<script type="text/javascript">
+			function GetQueryString(name)
+			{
+			     var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+			     var r = window.location.search.substr(1).match(reg);
+			     if(r!=null)return  unescape(r[2]); return null;
+			}
+			window.onload = function(){
+				var username = GetQueryString('username');
+				var password = GetQueryString('password');
+				if(username=="admin" && password=="admin"){
+					
+				}else if(username!=null && password!=null){
+					var Msg = document.createElement('p');
+					Msg.style = "Color:#00EEEE;text-align: center;;";
+					Msg.innerHTML = '<strong>账号或密码错误</br>默认账号密码为 admin</strong>';
+					document.getElementsByClassName('info')[0].appendChild(Msg);
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div class="Login">
+			<h1>登录</h1>
+			<form action="index.html" method="get">
+				<input class="txt" type="text" name="username" placeholder="用户名"/>
+				<input class="txt" type="password" name="password" placeholder="密码"/>
+				<input class="btn" type="submit" value="登录"/>
+				<div class="info"></div>
+			</form>
+		</div>
+	</body>
+	<footer>
+		<div class="CopyRight">
+			<p>CopyRight©LP</p>
+		</div>
+	</footer>
+</html>
